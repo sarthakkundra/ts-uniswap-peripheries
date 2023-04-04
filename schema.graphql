@@ -1,0 +1,16 @@
+type LendGivenPrincipal @entity(immutable: true) {
+  id: Bytes!
+  token0: Bytes! # address
+  token1: Bytes! # address
+  strike: BigInt! # uint256
+  maturity: BigInt! # uint256
+  uniswapV3Fee: Int! # uint24
+  from: Bytes! # address
+  to: Bytes! # address
+  isToken0: Boolean! # bool
+  tokenAmount: BigInt! # uint256
+  positionAmount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

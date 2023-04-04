@@ -1,0 +1,24 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: TimeswapV2PeripheryUniswapV3LendGivenPrincipal
+    network: matic
+    source:
+      address: "0xb0EB735B0246bB11Fb57DB28DF5370D72C153314"
+      abi: TimeswapV2PeripheryUniswapV3LendGivenPrincipal
+      startBlock: 39476358
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - LendGivenPrincipal
+      abis:
+        - name: TimeswapV2PeripheryUniswapV3LendGivenPrincipal
+          file: ./abis/TimeswapV2PeripheryUniswapV3LendGivenPrincipal.json
+      eventHandlers:
+        - event: LendGivenPrincipal(indexed address,indexed address,uint256,indexed uint256,uint24,address,address,bool,uint256,uint256)
+          handler: handleLendGivenPrincipal
+      file: ./src/timeswap-v-2-periphery-uniswap-v-3-lend-given-principal.ts
