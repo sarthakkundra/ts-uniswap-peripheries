@@ -1,0 +1,45 @@
+specVersion: 0.0.5
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: TimeswapV2PeripheryUniswapV3LendGivenPrincipal
+    network: matic
+    source:
+      address: "0xb0EB735B0246bB11Fb57DB28DF5370D72C153314"
+      abi: TimeswapV2PeripheryUniswapV3LendGivenPrincipal
+      startBlock: 39476358
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - LendGivenPrincipal
+      abis:
+        - name: TimeswapV2PeripheryUniswapV3LendGivenPrincipal
+          file: TimeswapV2PeripheryUniswapV3LendGivenPrincipal/abis/TimeswapV2PeripheryUniswapV3LendGivenPrincipal.json
+      eventHandlers:
+        - event: LendGivenPrincipal(indexed address,indexed address,uint256,indexed
+            uint256,uint24,address,address,bool,uint256,uint256)
+          handler: handleLendGivenPrincipal
+      file: TimeswapV2PeripheryUniswapV3LendGivenPrincipal/TimeswapV2PeripheryUniswapV3LendGivenPrincipal.wasm
+templates:
+  - name: TimeswapV2PeripheryUniswapV3BorrowGivenPrincipal
+    kind: ethereum/contract
+    network: matic
+    source:
+      abi: TimeswapV2PeripheryUniswapV3BorrowGivenPrincipal
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - BorrowGivenPrincipal
+      abis:
+        - name: TimeswapV2PeripheryUniswapV3BorrowGivenPrincipal
+          file: TimeswapV2PeripheryUniswapV3BorrowGivenPrincipal/abis/TimeswapV2PeripheryUniswapV3BorrowGivenPrincipal.json
+      eventHandlers:
+        - event: BorrowGivenPrincipal(indexed address,indexed address,uint256,indexed
+            uint256,uint24,address,address,address,bool,bool,uint256,uint256)
+          handler: handleBorrowGivenPrincipal
+      file: templates/TimeswapV2PeripheryUniswapV3BorrowGivenPrincipal/TimeswapV2PeripheryUniswapV3BorrowGivenPrincipal.wasm
