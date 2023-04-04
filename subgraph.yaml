@@ -4,11 +4,11 @@ schema:
 dataSources:
   - kind: ethereum
     name: TimeswapV2PeripheryUniswapV3LendGivenPrincipal
-    network: arbitrum-one
+    network: mainnet
     source:
-      address: "0xb0EB735B0246bB11Fb57DB28DF5370D72C153314"
+      address: "0x5073657C5459a6BcB66a769Ad9687D2576630f53"
       abi: TimeswapV2PeripheryUniswapV3LendGivenPrincipal
-      startBlock: 39476358
+      startBlock: 16778363
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -24,11 +24,11 @@ dataSources:
       file: ./src/timeswap-v-2-periphery-uniswap-v-3-lend-given-principal.ts
   - kind: ethereum
     name: TimeswapV2PeripheryUniswapV3BorrowGivenPrincipal
-    network: arbitrum-one
+    network: mainnet
     source:
-      address: "0x7f7B71d60027aEE523FFfac9cC17ebF7915f1d02"
+      address: "0x28D0591275863d5d8ED33Ea30a8Ab58C351155A9"
       abi: TimeswapV2PeripheryUniswapV3BorrowGivenPrincipal
-      startBlock: 39476364
+      startBlock: 16778364
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
