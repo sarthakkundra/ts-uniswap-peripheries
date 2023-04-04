@@ -4,7 +4,7 @@ schema:
 dataSources:
   - kind: ethereum
     name: TimeswapV2PeripheryUniswapV3LendGivenPrincipal
-    network: matic
+    network: arbitrum-one
     source:
       address: "0xb0EB735B0246bB11Fb57DB28DF5370D72C153314"
       abi: TimeswapV2PeripheryUniswapV3LendGivenPrincipal
@@ -23,12 +23,13 @@ dataSources:
             uint256,uint24,address,address,bool,uint256,uint256)
           handler: handleLendGivenPrincipal
       file: TimeswapV2PeripheryUniswapV3LendGivenPrincipal/TimeswapV2PeripheryUniswapV3LendGivenPrincipal.wasm
-templates:
-  - name: TimeswapV2PeripheryUniswapV3BorrowGivenPrincipal
-    kind: ethereum/contract
-    network: matic
+  - kind: ethereum
+    name: TimeswapV2PeripheryUniswapV3BorrowGivenPrincipal
+    network: arbitrum-one
     source:
+      address: "0x7f7B71d60027aEE523FFfac9cC17ebF7915f1d02"
       abi: TimeswapV2PeripheryUniswapV3BorrowGivenPrincipal
+      startBlock: 39476364
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -42,4 +43,4 @@ templates:
         - event: BorrowGivenPrincipal(indexed address,indexed address,uint256,indexed
             uint256,uint24,address,address,address,bool,bool,uint256,uint256)
           handler: handleBorrowGivenPrincipal
-      file: templates/TimeswapV2PeripheryUniswapV3BorrowGivenPrincipal/TimeswapV2PeripheryUniswapV3BorrowGivenPrincipal.wasm
+      file: TimeswapV2PeripheryUniswapV3BorrowGivenPrincipal/TimeswapV2PeripheryUniswapV3BorrowGivenPrincipal.wasm
