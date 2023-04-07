@@ -3,7 +3,7 @@ import {
   Create as CreateEvent,
   SetOwner as SetOwnerEvent
 } from "../generated/TimeswapV2PoolFactory/TimeswapV2PoolFactory"
-import { AcceptOwner, Create, SetOwner } from "../generated/poolFactorySchema"
+import { AcceptOwner, CreatePool, SetOwner } from "../generated/poolFactorySchema"
 import { dataSource, DataSourceContext } from "@graphprotocol/graph-ts"
 
 export function handleAcceptOwner(event: AcceptOwnerEvent): void {
@@ -20,7 +20,7 @@ export function handleAcceptOwner(event: AcceptOwnerEvent): void {
 }
 
 export function handleCreate(event: CreateEvent): void {
-  let entity = new Create(
+  let entity = new CreatePool(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   )
   entity.caller = event.params.caller

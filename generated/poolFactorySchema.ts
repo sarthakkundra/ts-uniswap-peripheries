@@ -81,7 +81,7 @@ export class AcceptOwner extends Entity {
   }
 }
 
-export class Create extends Entity {
+export class CreatePool extends Entity {
   constructor(id: Bytes) {
     super();
     this.set("id", Value.fromBytes(id));
@@ -99,8 +99,8 @@ export class Create extends Entity {
     }
   }
 
-  static load(id: Bytes): Create | null {
-    return changetype<Create | null>(store.get("Create", id.toHexString()));
+  static load(id: Bytes): CreatePool | null {
+    return changetype<CreatePool | null>(store.get("Create", id.toHexString()));
   }
 
   get id(): Bytes {
