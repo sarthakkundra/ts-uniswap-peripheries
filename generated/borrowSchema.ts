@@ -178,4 +178,13 @@ import {
     set transactionHash(value: Bytes) {
       this.set("transactionHash", Value.fromBytes(value));
     }
+
+    get poolPairAddress(): string {
+        let value = this.get("poolPairAddress");
+        return value!.toString();
+      }
+    
+      set poolPairAddress(value: string) {
+        this.set("poolPairAddress", Value.fromString(value));
+      }
   }
