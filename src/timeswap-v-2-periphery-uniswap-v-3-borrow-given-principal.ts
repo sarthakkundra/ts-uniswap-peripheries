@@ -1,5 +1,6 @@
 import { BorrowGivenPrincipal as BorrowGivenPrincipalEvent } from "../generated/TimeswapV2PeripheryUniswapV3BorrowGivenPrincipal/TimeswapV2PeripheryUniswapV3BorrowGivenPrincipal"
 import { BorrowGivenPrincipal } from "../generated/borrowSchema"
+import { dataSource } from "@graphprotocol/graph-ts"
 
 export function handleBorrowGivenPrincipal(
   event: BorrowGivenPrincipalEvent
@@ -19,6 +20,11 @@ export function handleBorrowGivenPrincipal(
   entity.isLong0 = event.params.isLong0
   entity.tokenAmount = event.params.tokenAmount
   entity.positionAmount = event.params.positionAmount
+
+  // let context = dataSource.context();
+  // let optionPairAdd = context.getString(`option-pair-${event.params.token0.toString()}-${event.params.token1.toString()}`)
+  // let poolPairAdd = context.getString(optionPairAdd);
+  // entity.poolPairAddress = poolPairAdd;
 
   entity.blockNumber = event.block.number
   entity.blockTimestamp = event.block.timestamp

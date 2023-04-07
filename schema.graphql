@@ -13,6 +13,7 @@ type LendGivenPrincipal @entity(immutable: true) {
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
+  poolPairAddress: String!
 }
 
 type BorrowGivenPrincipal @entity(immutable: true) {
@@ -29,6 +30,44 @@ type BorrowGivenPrincipal @entity(immutable: true) {
   isLong0: Boolean! # bool
   tokenAmount: BigInt! # uint256
   positionAmount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+  poolPairAddress: String!
+}
+
+type Create @entity(immutable: true) {
+  id: Bytes!
+  caller: Bytes! # address
+  token0: Bytes! # address
+  token1: Bytes! # address
+  optionPair: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type AcceptOwner @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type CreatePool @entity(immutable: true) {
+  id: Bytes!
+  caller: Bytes! # address
+  option: Bytes! # address
+  poolPair: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type SetOwner @entity(immutable: true) {
+  id: Bytes!
+  pendingOwner: Bytes! # address
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!

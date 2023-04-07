@@ -1,5 +1,6 @@
 import { LendGivenPrincipal as LendGivenPrincipalEvent } from "../generated/TimeswapV2PeripheryUniswapV3LendGivenPrincipal/TimeswapV2PeripheryUniswapV3LendGivenPrincipal"
 import { LendGivenPrincipal } from "../generated/schema"
+import { dataSource } from "@graphprotocol/graph-ts"
 
 export function handleLendGivenPrincipal(event: LendGivenPrincipalEvent): void {
   let entity = new LendGivenPrincipal(
@@ -15,6 +16,11 @@ export function handleLendGivenPrincipal(event: LendGivenPrincipalEvent): void {
   entity.isToken0 = event.params.isToken0
   entity.tokenAmount = event.params.tokenAmount
   entity.positionAmount = event.params.positionAmount
+
+  // let context = dataSource.context();
+  // let optionPairAdd = context.getString(`option-pair-${event.params.token0.toString()}-${event.params.token1.toString()}`)
+  // let poolPairAdd = context.getString(optionPairAdd);
+  // entity.poolPairAddress = poolPairAdd;
 
   entity.blockNumber = event.block.number
   entity.blockTimestamp = event.block.timestamp

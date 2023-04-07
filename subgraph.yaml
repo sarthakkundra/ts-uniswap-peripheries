@@ -42,5 +42,51 @@ dataSources:
         - event: BorrowGivenPrincipal(indexed address,indexed address,uint256,indexed uint256,uint24,address,address,address,bool,bool,uint256,uint256)
           handler: handleBorrowGivenPrincipal
       file: ./src/timeswap-v-2-periphery-uniswap-v-3-borrow-given-principal.ts
+  - kind: ethereum
+    name: TimeswapV2OptionFactory
+    network: mainnet
+    source:
+      address: "0xcf0aca5c5b7e1bF63514D362243b6c50d5761FE8"
+      abi: TimeswapV2OptionFactory
+      startBlock: 16778358
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Create
+      abis:
+        - name: TimeswapV2OptionFactory
+          file: ./abis/TimeswapV2OptionFactory.json
+      eventHandlers:
+        - event: Create(indexed address,indexed address,indexed address,address)
+          handler: handleCreate
+      file: ./src/timeswap-v-2-option-factory.ts
+  - kind: ethereum
+    name: TimeswapV2PoolFactory
+    network: mainnet
+    source:
+      address: "0x8E3fcda01FCA533989C3CeABdcF2A6E0A776585F"
+      abi: TimeswapV2PoolFactory
+      startBlock: 16778359
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - AcceptOwner
+        - CreatePool
+        - SetOwner
+      abis:
+        - name: TimeswapV2PoolFactory
+          file: ./abis/TimeswapV2PoolFactory.json
+      eventHandlers:
+        - event: AcceptOwner(address)
+          handler: handleAcceptOwner
+        - event: Create(address,address,address)
+          handler: handleCreate
+        - event: SetOwner(address)
+          handler: handleSetOwner
+      file: ./src/timeswap-v-2-pool-factory.ts
 
 
