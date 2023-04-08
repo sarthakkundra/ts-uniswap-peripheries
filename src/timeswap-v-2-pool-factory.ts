@@ -3,7 +3,7 @@ import {
   Create as CreateEvent,
   SetOwner as SetOwnerEvent
 } from "../generated/TimeswapV2PoolFactory/TimeswapV2PoolFactory"
-import { AcceptOwner, CreatePool, SetOwner } from "../generated/poolFactorySchema"
+import { AcceptOwner, CreatePool, SetOwner } from "../generated/schema"
 import { dataSource, DataSourceContext } from "@graphprotocol/graph-ts"
 
 export function handleAcceptOwner(event: AcceptOwnerEvent): void {

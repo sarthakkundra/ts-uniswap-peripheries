@@ -1,5 +1,5 @@
 import { Create as CreateEvent } from "../generated/TimeswapV2OptionFactory/TimeswapV2OptionFactory"
-import { Create } from "../generated/optionFactorySchema"
+import { Create } from "../generated/schema"
 import { DataSourceContext } from "@graphprotocol/graph-ts"
 
 export function handleCreate(event: CreateEvent): void {

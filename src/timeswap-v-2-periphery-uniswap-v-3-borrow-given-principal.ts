@@ -1,5 +1,5 @@
 import { BorrowGivenPrincipal as BorrowGivenPrincipalEvent } from "../generated/TimeswapV2PeripheryUniswapV3BorrowGivenPrincipal/TimeswapV2PeripheryUniswapV3BorrowGivenPrincipal"
-import { BorrowGivenPrincipal } from "../generated/borrowSchema"
+import { BorrowGivenPrincipal } from "../generated/schema"
 import { dataSource } from "@graphprotocol/graph-ts"
 
 export function handleBorrowGivenPrincipal(
