@@ -169,6 +169,15 @@ export class LendGivenPrincipal extends Entity {
   set poolPairAddress(value: string) {
     this.set("poolPairAddress", Value.fromString(value));
   }
+
+  get optionPairAddress(): string {
+    let value = this.get("optionPairAddress");
+    return value!.toString();
+  }
+
+  set optionPairAddress(value: string) {
+    this.set("optionPairAddress", Value.fromString(value));
+  }
 }
 
 export class BorrowGivenPrincipal extends Entity {
@@ -346,6 +355,15 @@ export class BorrowGivenPrincipal extends Entity {
 
   set poolPairAddress(value: string) {
     this.set("poolPairAddress", Value.fromString(value));
+  }
+
+  get optionPairAddress(): string {
+    let value = this.get("optionPairAddress");
+    return value!.toString();
+  }
+
+  set optionPairAddress(value: string) {
+    this.set("optionPairAddress", Value.fromString(value));
   }
 }
 

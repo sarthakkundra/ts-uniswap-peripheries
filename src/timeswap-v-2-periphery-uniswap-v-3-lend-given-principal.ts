@@ -20,7 +20,9 @@ export function handleLendGivenPrincipal(event: LendGivenPrincipalEvent): void {
   let context = dataSource.context();
   let optionPairAdd = context.getString(`option-pair-${event.params.token0.toString()}-${event.params.token1.toString()}`)
   let poolPairAdd = context.getString(optionPairAdd);
+  
   entity.poolPairAddress = poolPairAdd;
+  entity.optionPairAddress = optionPairAdd;
 
   entity.blockNumber = event.block.number
   entity.blockTimestamp = event.block.timestamp

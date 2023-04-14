@@ -14,6 +14,7 @@ type LendGivenPrincipal @entity(immutable: true) {
   blockTimestamp: BigInt!
   transactionHash: Bytes!
   poolPairAddress: String!
+  optionPairAddress: String!
 }
 
 type BorrowGivenPrincipal @entity(immutable: true) {
@@ -34,6 +35,7 @@ type BorrowGivenPrincipal @entity(immutable: true) {
   blockTimestamp: BigInt!
   transactionHash: Bytes!
   poolPairAddress: String!
+  optionPairAddress: String!
 }
 
 type Create @entity(immutable: true) {
