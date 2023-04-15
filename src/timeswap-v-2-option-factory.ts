@@ -3,8 +3,10 @@ import { Create } from "../generated/schema"
 import { DataSourceContext } from "@graphprotocol/graph-ts"
 
 export function handleCreate(event: CreateEvent): void {
+  let id = `option-pair-${event.params.token0.toString()}-${event.params.token1.toString()}`
+
   let entity = new Create(
-    event.transaction.hash.concatI32(event.logIndex.toI32())
+    id
   )
   entity.caller = event.params.caller
   entity.token0 = event.params.token0

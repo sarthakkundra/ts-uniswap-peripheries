@@ -39,7 +39,7 @@ type BorrowGivenPrincipal @entity(immutable: true) {
 }
 
 type Create @entity(immutable: true) {
-  id: Bytes!
+  id: String!
   caller: Bytes! # address
   token0: Bytes! # address
   token1: Bytes! # address
@@ -58,7 +58,7 @@ type AcceptOwner @entity(immutable: true) {
 }
 
 type CreatePool @entity(immutable: true) {
-  id: Bytes!
+  id: String!
   caller: Bytes! # address
   option: Bytes! # address
   poolPair: Bytes! # address

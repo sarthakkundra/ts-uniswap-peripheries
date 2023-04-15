@@ -368,9 +368,9 @@ export class BorrowGivenPrincipal extends Entity {
 }
 
 export class Create extends Entity {
-  constructor(id: Bytes) {
+  constructor(id: string) {
     super();
-    this.set("id", Value.fromBytes(id));
+    this.set("id", Value.fromString(id));
   }
 
   save(): void {
@@ -378,24 +378,24 @@ export class Create extends Entity {
     assert(id != null, "Cannot save Create entity without an ID");
     if (id) {
       assert(
-        id.kind == ValueKind.BYTES,
-        `Entities of type Create must have an ID of type Bytes but the id '${id.displayData()}' is of type ${id.displayKind()}`
+        id.kind == ValueKind.STRING,
+        `Entities of type Create must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
       );
-      store.set("Create", id.toBytes().toHexString(), this);
+      store.set("Create", id.toString(), this);
     }
   }
 
-  static load(id: Bytes): Create | null {
-    return changetype<Create | null>(store.get("Create", id.toHexString()));
+  static load(id: string): Create | null {
+    return changetype<Create | null>(store.get("Create", id));
   }
 
-  get id(): Bytes {
+  get id(): string {
     let value = this.get("id");
-    return value!.toBytes();
+    return value!.toString();
   }
 
-  set id(value: Bytes) {
-    this.set("id", Value.fromBytes(value));
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
   }
 
   get caller(): Bytes {
@@ -533,9 +533,9 @@ export class AcceptOwner extends Entity {
 }
 
 export class CreatePool extends Entity {
-  constructor(id: Bytes) {
+  constructor(id: string) {
     super();
-    this.set("id", Value.fromBytes(id));
+    this.set("id", Value.fromString(id));
   }
 
   save(): void {
@@ -543,26 +543,24 @@ export class CreatePool extends Entity {
     assert(id != null, "Cannot save CreatePool entity without an ID");
     if (id) {
       assert(
-        id.kind == ValueKind.BYTES,
-        `Entities of type CreatePool must have an ID of type Bytes but the id '${id.displayData()}' is of type ${id.displayKind()}`
+        id.kind == ValueKind.STRING,
+        `Entities of type CreatePool must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
       );
-      store.set("CreatePool", id.toBytes().toHexString(), this);
+      store.set("CreatePool", id.toString(), this);
     }
   }
 
-  static load(id: Bytes): CreatePool | null {
-    return changetype<CreatePool | null>(
-      store.get("CreatePool", id.toHexString())
-    );
+  static load(id: string): CreatePool | null {
+    return changetype<CreatePool | null>(store.get("CreatePool", id));
   }
 
-  get id(): Bytes {
+  get id(): string {
     let value = this.get("id");
-    return value!.toBytes();
+    return value!.toString();
   }
 
-  set id(value: Bytes) {
-    this.set("id", Value.fromBytes(value));
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
   }
 
   get caller(): Bytes {

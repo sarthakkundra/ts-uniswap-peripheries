@@ -21,7 +21,7 @@ export function handleAcceptOwner(event: AcceptOwnerEvent): void {
 
 export function handleCreate(event: CreateEvent): void {
   let entity = new CreatePool(
-    event.transaction.hash.concatI32(event.logIndex.toI32())
+    event.params.option.toString()
   )
   entity.caller = event.params.caller
   entity.option = event.params.option

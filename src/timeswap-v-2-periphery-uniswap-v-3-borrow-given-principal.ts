@@ -1,5 +1,5 @@
 import { BorrowGivenPrincipal as BorrowGivenPrincipalEvent } from "../generated/TimeswapV2PeripheryUniswapV3BorrowGivenPrincipal/TimeswapV2PeripheryUniswapV3BorrowGivenPrincipal"
-import { BorrowGivenPrincipal } from "../generated/schema"
+import { BorrowGivenPrincipal, Create, CreatePool } from "../generated/schema"
 import { dataSource } from "@graphprotocol/graph-ts"
 
 export function handleBorrowGivenPrincipal(
@@ -21,12 +21,16 @@ export function handleBorrowGivenPrincipal(
   entity.tokenAmount = event.params.tokenAmount
   entity.positionAmount = event.params.positionAmount
 
-  let context = dataSource.context();
-  let optionPairAdd = context.getString(`option-pair-${event.params.token0.toString()}-${event.params.token1.toString()}`)
-  let poolPairAdd = context.getString(optionPairAdd);
-  
-  entity.poolPairAddress = poolPairAdd;
-  entity.optionPairAddress = optionPairAdd;
+  let optionPair = Create.load(`option-pair-${event.params.token0.toString()}-${event.params.token1.toString()}`)
+  if(optionPair) {
+    let poolPair = CreatePool.load(optionPair.optionPair.toString());
+    if (poolPair) {
+      entity.poolPairAddress = poolPair.poolPair.toHexString();
+    } else {
+      entity.poolPairAddress = "not-found"
+    }
+    entity.optionPairAddress = optionPair.optionPair.toHexString();
+  }
 
   entity.blockNumber = event.block.number
   entity.blockTimestamp = event.block.timestamp
