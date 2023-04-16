@@ -4,11 +4,11 @@ schema:
 dataSources:
   - kind: ethereum
     name: TimeswapV2PeripheryUniswapV3LendGivenPrincipal
-    network: mainnet
+    network: arbitrum-one
     source:
-      address: "0x5073657C5459a6BcB66a769Ad9687D2576630f53"
+      address: "0xEDA832936D5e0661c9A70027c39583137715FE8D"
       abi: TimeswapV2PeripheryUniswapV3LendGivenPrincipal
-      startBlock: 16778363
+      startBlock: 72745913
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -24,11 +24,11 @@ dataSources:
       file: ./src/timeswap-v-2-periphery-uniswap-v-3-lend-given-principal.ts
   - kind: ethereum
     name: TimeswapV2PeripheryUniswapV3BorrowGivenPrincipal
-    network: mainnet
+    network: arbitrum-one
     source:
-      address: "0x28D0591275863d5d8ED33Ea30a8Ab58C351155A9"
+      address: "0x6aAbebd635B1c153bCbA17B8c8728d7a61a74887"
       abi: TimeswapV2PeripheryUniswapV3BorrowGivenPrincipal
-      startBlock: 16778364
+      startBlock: 72745936
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -44,11 +44,11 @@ dataSources:
       file: ./src/timeswap-v-2-periphery-uniswap-v-3-borrow-given-principal.ts
   - kind: ethereum
     name: TimeswapV2OptionFactory
-    network: mainnet
+    network: arbitrum-one
     source:
       address: "0xcf0aca5c5b7e1bF63514D362243b6c50d5761FE8"
       abi: TimeswapV2OptionFactory
-      startBlock: 16778358
+      startBlock: 70785946
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -64,11 +64,11 @@ dataSources:
       file: ./src/timeswap-v-2-option-factory.ts
   - kind: ethereum
     name: TimeswapV2PoolFactory
-    network: mainnet
+    network: arbitrum-one
     source:
-      address: "0x8E3fcda01FCA533989C3CeABdcF2A6E0A776585F"
+      address: "0x976607554d56A46FBa855093be198cB4796e15f0"
       abi: TimeswapV2PoolFactory
-      startBlock: 16778359
+      startBlock: 70785970
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
