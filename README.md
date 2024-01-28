@@ -1,5 +1,5 @@
 # Timeswap Uniswap Peripheries
 
-Subgraph to track borrow and lend txs for uniswap pools. 
+Graph explorer to track Timeswap lend and borrow transactions for pool and option pairs. 
 
 Deployed URL - https://thegraph.com/hosted-service/subgraph/sarthak-kundra/ts-uniswap-peri-lend
